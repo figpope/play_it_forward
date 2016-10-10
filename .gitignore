@@ -1,0 +1,32 @@
+logs
+project/project
+target
+tmp
+dist
+/.idea
+/*.iml
+/out
+/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+
+.idea_modules
+.classpath
+.project
+.settings
+
+# backup files
+.~*
+*~
+*.orig
+
+# eclipse
+.scala_dependencies
+.buildpath
+.cache
+.target
+bin/
+
+    
