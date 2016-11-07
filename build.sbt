@@ -29,21 +29,19 @@ val javacOptions = Seq(
 )
 
 
-lazy val libraryDeps =
-Seq(
+libraryDependencies ++= Seq(
   cache,
   ws,
   specs2 % Test,
   "com.typesafe.play" %% "play-slick" % "2.0.0",
   "com.typesafe.play" %% "play-slick-evolutions" % "1.1.0",
-  "org.postgresql" % "postgresql" % "9.4.1211.jre7"
+  "org.postgresql" % "postgresql" % "9.4.1211.jre7",
+  specs2 % Test
 //"org.scala-js" %% "scalajs-library" % "0.6.12",
 //"org.scala-js" %% "scalajs-dom" % "0.9.1"
 )
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
-
-resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
 
 lazy val `play_it_forward` = (project in file("."))
   .settings(metaSettings: _*)
@@ -54,7 +52,7 @@ lazy val `play_it_forward` = (project in file("."))
 //  scalaVersion := scalaVersion,
 //  persistLauncher := true,
 //  persistLauncher in Test := false,
-//  libraryDependencies ++= libraryDeps
+//  libraryDependencies ++= libraryDependencies
 //).enablePlugins(ScalaJSPlugin, ScalaJSWeb).
 //  dependsOn(sharedJs)
 //

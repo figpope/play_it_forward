@@ -10,7 +10,7 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 #User
 GET     /home                       controllers.UserController.home
-POST    /add                        controllers.UserController.addUser
-GET     /delete/:id                 controllers.UserController.deleteUser(id : Long)
+#POST    /add                        controllers.UserController.addUser
+#GET     /delete/:id                 controllers.UserController.deleteUser(id : Long)
 
     

@@ -1,5 +1,5 @@
 package models
 
-class User {
+case class User (id: Int) {
 
 }

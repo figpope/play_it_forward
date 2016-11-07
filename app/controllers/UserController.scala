@@ -25,36 +25,35 @@ class UserController @Inject()
     */
   def home = Action.async { implicit  request =>
     userService.listAllUsers map { users =>
-      Ok(views.html.user(UserForm.form,users))
+      Ok(users)
     }
   }
 
-  /**
-    * Add User.
-    *
-    * @return The result to display.
-    */
-  def addUser() = Action.async { implicit request =>
-    UserForm.form.bindFromRequest.fold(
-      // if any error in submitted data
-      errorForm => Future.successful(Ok(views.html.user(errorForm,Seq.empty[User]))),
-      data => {
-        val newUser = User(0,data.firstName,data.lastName,data.mobile,data.email)
-        userService.addUser(newUser).map(res =>
-          Redirect(routes.UserController.home()).flashing(Messages("flash.success") -> res)
-        )
-      })
-  }
-
-  /**
-    * Delete User.
-    *
-    * @return The result to display.
-    */
-  def deleteUser(id : Long) = Action.async { implicit request =>
-    userService.deleteUser(id) map { res =>
-      Redirect(routes.UserController.home())
-    }
-  }
-
+//  /**
+//    * Add User.
+//    *
+//    * @return The result to display.
+//    */
+//  def addUser() = Action.async { implicit request =>
+//    UserForm.form.bindFromRequest.fold(
+//      // if any error in submitted data
+//      errorForm => Future.successful(Ok(errorForm,Seq.empty[User])),
+//      data => {
+//        val newUser = User(0, data.firstName,data.lastName,data.mobile,data.email, data.birthDate)
+//        userService.addUser(newUser).map(res =>
+//          Redirect(routes.UserController.home()).flashing(Messages("flash.success") -> res)
+//        )
+//      })
+//  }
+//
+//  /**
+//    * Delete User.
+//    *
+//    * @return The result to display.
+//    */
+//  def deleteUser(id : Long) = Action.async { implicit request =>
+//    userService.deleteUser(id) map { res =>
+//      Redirect(routes.UserController.home())
+//    }
+//  }
 }

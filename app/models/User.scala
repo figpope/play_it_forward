@@ -4,7 +4,8 @@ import java.time.LocalDate
 import play.api.data.Form
 import play.api.data.Forms._
 
-case class User(id: Long, firstName: String, lastName: String, mobile: Long, email: String, birthDate: LocalDate)
+// case class User(id: Long, firstName: String, lastName: String, mobile: Long, email: String, birthDate: LocalDate)
+case class User(id: Long)
 
 case class UserFormData(firstName: String, lastName: String, mobile: Long, email: String, birthDate: LocalDate)
 

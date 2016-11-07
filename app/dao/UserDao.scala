@@ -49,6 +49,8 @@ class UserDao @Inject()
   }
 
   def listAll: Future[Seq[User]] = {
-    db.run(users.result)
+    //db.run(users.result)
+    val user = User(12L)
+    Future.successful(Seq(user))
   }
 }
